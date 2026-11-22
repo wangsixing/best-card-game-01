@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emberfall — Duel of the Last Ember</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div class="fighter" id="foe-box">
+      <div class="portrait foe-portrait" aria-hidden="true">🔥</div>
+      <div class="fighter-info">
+        <div class="fighter-name">The Ash Warden</div>
+        <div class="life-row"><span class="life-label">Ember</span><span class="life-num" id="foe-life">24</span><span class="life-max">/ 24</span></div>
+        <div class="life-bar"><div class="life-fill foe-fill" id="foe-life-fill"></div></div>
+        <div class="block-row" id="foe-block-row" hidden>🛡 Block <b id="foe-block">0</b></div>
+      </div>
+    </div>
+    <div id="turn-banner">
+      <div id="round-label">Round 1</div>
+      <div id="phase-label">Your turn — play a card</div>
+      <div id="deck-counts"><span id="foe-deck">Warden deck: 20</span> · <span id="you-deck">Your deck: 20</span></div>
+    </div>
+    <div class="fighter" id="you-box">
+      <div class="fighter-info right">
+        <div class="fighter-name">You — Emberkeeper</div>
+        <div class="life-row"><span class="life-label">Ember</span><span class="life-num" id="you-life">24</span><span class="life-max">/ 24</span></div>
+        <div class="life-bar"><div class="life-fill you-fill" id="you-life-fill"></div></div>
+        <div class="block-row" id="you-block-row" hidden>🛡 Block <b id="you-block">0</b></div>
+      </div>
+      <div class="portrait you-portrait" aria-hidden="true">🧑‍🚀</div>
+    </div>
+  </header>
+
+  <main id="table">
+    <section id="foe-hand-zone" aria-label="Opponent hand">
+      <div class="zone-label">Warden's hand <span id="foe-hand-count">(4 cards)</span></div>
+      <div id="foe-hand" class="hand foe"></div>
+    </section>
+
+    <section id="arena" aria-label="Arena">
+      <div id="arena-cards"></div>
+      <div id="battle-log" aria-live="polite"></div>
+    </section>
+
+    <section id="you-hand-zone" aria-label="Your hand">
+      <div class="zone-label">Your hand — click a card to play it <span class="keys-hint">(keys 1–5 play · Enter ends turn)</span></div>
+      <div id="you-hand" class="hand you"></div>
+    </section>
+  </main>
+
+  <footer id="controls">
+    <div id="mana"><span class="mana-label">Mana</span><span id="mana-pips"></span><span id="mana-num">1 / 1</span></div>
+    <button id="end-turn" type="button">End Turn ⏎</button>
+    <button id="restart" type="button">Restart ↺</button>
+    <button id="mute" type="button" aria-pressed="false">Sound: On</button>
+  </footer>
+</div>
+
+<div id="overlay" hidden>
+  <div id="overlay-card">
+    <div id="overlay-kicker"></div>
+    <h1 id="overlay-title"></h1>
+    <p id="overlay-text"></p>
+    <div id="overlay-stats"></div>
+    <button id="overlay-button" type="button">Play again</button>
+    <p class="overlay-hint">or press Enter</p>
+  </div>
+</div>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
